@@ -1,0 +1,40 @@
+% Lista de acrónimos (se ordenan por orden alfabético automáticamente)
+
+% La forma de definir un acrónimo es la siguiente:
+% \newacronyn{id}{siglas}{descripción}
+% Donde:
+% 	'id' es como vas a llamarlo desde el documento.
+%	'siglas' son las siglas del acrónimo.
+%	'descripción' es el texto que representan las siglas.
+%
+% Para usarlo en el documento tienes 4 formas:
+% \gls{id} - Añade el acrónimo en su forma larga y con las siglas si es la primera vez que se utiliza, el resto de veces solo añade las siglas. (No utilices este en títulos de capítulos o secciones).
+% \glsentryshort{id} - Añade solo las siglas de la id
+% \glsentrylong{id} - Añade solo la descripción de la id
+% \glsentryfull{id} - Añade tanto  la descripción como las siglas
+
+%\newacronym{tfg}{TFG}{Trabajo Final de Grado}
+%\newacronym{tfm}{TFM}{Trabajo Final de Máster}
+
+\newacronym{iso}{ISO}{La Organización Internacional de Normalización}
+\newacronym{ui}{UI}{User Interface}
+\newacronym{tupa}{TUPA}{Texto Único de Procedimientos Administrativos}
+\newacronym{uml}{UML}{Lenguaje Unificado de Modelado}
+
+% A las descripciones se les agrega el punto final automaticamente
+
+% ACRONIMOS
+\newglossaryentry{javascript}{
+	name=JavaScript,
+	description={Lenguaje de programación orientado a objetos, diseñado para el desarrollo de aplicaciones cliente/servidor a través de Internet}
+}
+
+\newglossaryentry{nodejs}{
+	name=NodeJS,
+	description={Entorno de Ejecución Multiplataforma que permite ejecutar \gls{javascript} en navegadores, servidores, PC's, smartphones o en cualquier sitio donde se consiga portar un motor V8 de Google}
+}
+
+\newglossaryentry{framework}{
+	name=Framework,
+	description={Es un conjunto integrado de herramientas que facilitan un desarrollo software}
+}

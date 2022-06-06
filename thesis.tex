@@ -1,0 +1,159 @@
+% !TeX program = xelatex
+% !TeX TXS-program:compile = txs:///xelatex/[--shell-escape]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla TFG/TFM
+% Escuela Politécnica Superior de la Universidad de Alicante
+% Realizado por: Jose Manuel Requena Plens
+% Contacto: info@jmrplens.com / Telegram:@jmrplens
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Elige si deseas optimizar la ejecución del proyecto almacenando las figuras generadas con TikZ y PGF en una carpeta (archivos/figuras-procesadas).
+% 1 - Si, 2 - No
+\def\OptimizaTikZ{1}
+
+% Archivo .TEX que incluye todas las configuraciones del documento y los paquetes. Añade todo aquello que necesites utilizar en el documento en este archivo.
+% En él se encuentra la configuración de los márgenes, establecidos según las directrices de estilo de la EPS.
+\input{include/configuracioninicial}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INFORMACIÓN DEL TFG
+% Comentar lo que NO se desee añadir y sustituir con la información correcta.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Título y subtítulo
+\newcommand{\titulo}{Aplicación Móvil y Plataforma Web para la Gestión de Licencias de la Sub Gerencia de Control Urbano y Acondicionamiento Territorial de la Municipalidad Provincial de Lambayeque}
+\newcommand{\subtitulo}{utilizando los frameworks React Native y ReactJS}
+% Datos del autor
+\newcommand{\miNombre}{
+	Apellidos y nombres del autor}
+\newcommand{\miEmail}{}
+% Datos del tutor/es
+\newcommand{\miTutor}{Mg. Ing. Apellidos y nombres del asesor}
+\newcommand{\departamentoTutor}{}
+% Datos de la facultada y universidad
+\newcommand{\miFacultad}{Facultad de Ingeniería Civil, Sistemas y Arquitectura}
+\newcommand{\miFacultadCorto}{FICSA}
+\newcommand{\miEscuela}{Escuela Profesional de Ingeniería de Sistemas}
+\newcommand{\miEscuelaCorto}{EPIS}
+\newcommand{\miUniversidad}{\protect{Universidad Nacional Pedro Ruiz Gallo}}
+\newcommand{\miUniversidadTwoLine}{\protect{Universidad Nacional\\Pedro Ruiz Gallo}}
+\newcommand{\miUbicacion}{Lambayeque}
+\newcommand{\miPais}{Perú}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INDICA TU TITULACIÓN
+% ID	GRADO -------------------------------------------------
+% 1		Ingeniería en Imagen y Sonido en Telecomunicación
+% 2		Ingeniería Civil
+% 3		Ingeniería Química
+% 4		Ingeniería Informática
+% 5		Ingeniería Multimedia
+% 6		Arquitectura Técnica
+% 7		Arquitectura
+% 8		Robótica
+% %		%%%%%%%%%%%%
+% ID	MÁSTER ------------------------------------------------
+% A		Telecomunicación
+% B		Caminos, Canales y Puertos
+% C		Gestión en la Edificación
+% D		Desarrollo Web
+% E		Materiales, Agua, Terreno
+% F		Informática
+% G 	Automática y Robótica
+% H		Prevención de riesgos laborales
+% I		Gestión Sostenible Agua
+% J		Desarrollo Aplicaciones Móviles
+% K		Ingeniería Química
+% L		Ciberseguridad
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%%%
+																		%
+\def\IDtitulo{9} % INTRODUCE LA ID DE TU TITULACIÓN						%
+																		%
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configuración automática según el identificador elegido
+\input{include/configuraciontitulacion} 
+
+% Información añadida a las propiedades del archivo PDF.
+\hypersetup{
+	pdftoolbar=false,        % show Acrobat’s toolbar?
+	pdfmenubar=false,        % show Acrobat’s menu?
+	pdffitwindow=true,     % window fit to page when opened
+	pdfauthor = {\miNombre},
+	pdftitle = {\titulo},
+	pdfkeywords={Sistema Informático} {Scrum} {Silencio Administrativo} {React} {React Native} {Firebase}, % list of keywords
+	pdfnewwindow=true,      % links in new window
+	colorlinks=true,       % false: boxed links; true: colored links
+	linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+	citecolor=black,        % color of links to bibliography
+	filecolor=magenta,      % color of file links
+	urlcolor=cyan           % color of external links
+}
+
+%%
+% Archivo de acrónimos
+%%
+\makeglossaries % Genera la base de datos de acrónimos
+\input{anexos/acronimos.tex} % Archivo que contiene los acrónimos
+
+%%%%%%%%%%%%%%%%%%%%%%%% 
+% INICIO DEL DOCUMENTO
+% A partir de aquí debes empezar a realizar tu tesis
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Números romanos hasta el mainmatter.
+\frontmatter
+
+% PORTADA
+\input{include/portada/portada_unprg} % Portada Unprg
+\input{include/portada/portada_firmas} % Portada Firmas
+
+%%%%% PREAMBULO
+% Incluye el .tex que contiene el preámbulo, agradecimientos y dedicatorias.
+\input{capitulos/preliminaresconagradecimientos} 
+\input{capitulos/Resumen}
+
+% Incluye después del archivo anterior el indice y lista de figuras, tablas y códigos.
+\tableofcontents	% Índice
+\listoffigures		% Índice de figuras
+\listoftables		% Índice de tablas
+%\lstlistoflistings	% Índice de códigos
+\listofappendices	% Índice de Apéndices
+% Inicia la numeración habitual.
+\mainmatter
+% Padding en las Tablas
+{\renewcommand{\arraystretch}{1.4}
+%%%%
+% CONTENIDO. CAPÍTULOS DEL TRABAJO - Añade o elimina según tus necesidades
+%%%%
+\input{capitulos/Introduccion}	% Plantilla: Se muestran contenidos
+\input{capitulos/MarcoTeorico} % NUEVO
+\input{capitulos/MarcoMetodologico} % NUEVO
+\input{capitulos/Resultados} % NUEVO
+\input{capitulos/DiscusionDeResultados} % NUEVO
+\input{capitulos/Conclusiones} % NUEVO
+\input{capitulos/Recomendaciones} % NUEVO
+%%%%
+% CONTENIDO. BIBLIOGRAFÍA.
+%%%%
+\nocite{*} %incluye TODOS los documentos de la base de datos bibliográfica sean o no citados en el texto
+\bibliography{bibliografia/bibliografia} % Archivo que contiene la bibliografía
+\bibliographystyle{apacite}
+%%%%
+% CONTENIDO. LISTA DE ACRÓNIMOS. Comenta las líneas si no lo deseas incluir.
+%%%%
+% Incluye el listado de acrónimos utilizados en el trabajo. 
+\printglossary[style=modsuper,type=\acronymtype,title={Lista de Acrónimos y Abreviaturas}]
+\printglossary[style=modsuper, title={Glosario de Términos}]
+% Añade el resto de acrónimos si así se desea. Si no elimina el comando siguiente
+\glsaddallunused 
+%%%%
+% CONTENIDO. Anexos - Añade o elimina según tus necesidades
+%%%%
+\appendix % Inicio de los apéndices
+\input{anexos/anexo_5}
+\backmatter
+
+
+\end{document}

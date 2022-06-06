@@ -1,0 +1,89 @@
+\if\OptimizaTikZ 1
+\tikzexternaldisable % Desactiva la exportación com figura
+\fi 
+
+% Tamaño por defecto de la fuente de texto para:
+\def\FuenteTamano{55pt}	% Tamaño para el título del trabajo
+\def\interlinportada{5.0} % Interlineado por defecto para el título
+\def\TamTrabajo{20pt} 	% Tamaño para el tipo de trabajo (grado o máster)
+\def\TamTrabajoIn{17pt} 	% Tamaño para el salto de línea después de tipo de trabajo
+\def\TamOtros{14pt} 	% Tamaño para datos personales y fecha
+\def\TamOtrosIn{14pt} 	% Tamaño para los saltos de línea en la info personal
+\def\TamOtrosJP{11pt} 	% Tamaño para los saltos de línea en la info personal
+
+\begin{titlepage}
+
+% Márgenes de esta pagina modificados
+\newgeometry{ignoreall,top=2cm,bottom=2cm,left=2.4cm,right=2.4cm}
+
+% Offset horizontal para toda la portada
+%\setlength{\centeroffset}{0.5\oddsidemargin}
+%\addtolength{\centeroffset}{0.5\evensidemargin}
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (-0.8,0.7)
+{\includegraphics[height=4cm]{\logoUniversidadPortadaOriginal}};
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (12.8,1.2)
+{\includegraphics[height=4cm]{\logoFacultadOriginal}};
+\end{tikzpicture}
+
+\centering
+
+\begin{adjustwidth}{6em}{6em}
+	\centering
+	\begin{spacing}{1.5}
+		{\fontsize{\TamTrabajoIn}{18pt} \textbf{\MakeUppercase{\miUniversidadTwoLine}}}\\[0.5cm]
+	\end{spacing}
+\end{adjustwidth}
+%\vspace{0.5cm}
+\begin{adjustwidth}{4em}{4em}
+	\centering
+	\begin{spacing}{1.2}
+		{\fontsize{\TamOtros}{0pt} \textbf{\MakeUppercase{\miFacultad}}}\\[0.5cm]
+		{\fontsize{\TamOtros}{0pt} \textbf{\MakeUppercase{\miEscuela}}}\\[0cm]
+	\end{spacing}
+\end{adjustwidth}
+{\fontsize{\TamOtrosIn}{0pt} \textbf{Tesis}}\\[0.5cm]
+
+\begin{spacing}{1.5}
+	\centering
+	{\fontsize{\TamOtrosIn}{0pt} \textbf{``\titulo, \subtitulo.''}}\\[1cm]
+\end{spacing}
+
+{\fontsize{\TamOtrosIn}{0pt} \textbf{Para optener el Título Profesional de:}}
+\\[0.5cm]
+{\fontsize{\TamOtrosIn}{0pt} \textbf{{Ingeniero de Sistemas}}}
+\\[1cm]
+{\fontsize{\TamOtrosJP}{0pt} \textbf{Aprobado por los Miembros del Jurado}}
+\\[0cm]
+\vspace{2cm}
+\begin{multicols}{2}
+	\centering
+	\vspace{2cm}
+	Mg. Ing. Apellidos, Nombres Jurado 1\\
+	Presidente\\
+	\vspace{2cm}
+	Ing. Apellidos, Nombres Jurado 3\\
+	Vocal\\
+	\columnbreak
+	\vspace{2cm}
+	Ing. Apellidos, Nombres Jurado 2\\
+	Secretario\\
+	\vspace{2cm}
+	Mg. Ing. Apellidos, Nombres Asesor\\
+	Asesor\\
+\end{multicols}
+\vspace{2cm}
+Apellidos, Nombres Autor\\
+Autor\\
+\end{titlepage}
+
+\if\OptimizaTikZ 1
+\tikzexternalenable % Reactiva la exportación como figura
+\fi
+% A partir de aquí aplica los márgenes establecidos en configuracioninicial.tex
+\restoregeometry
